@@ -9,12 +9,14 @@ jobs:
       - name: Setup Dependencies
         run: |
           Invoke-WebRequest -Uri "https://dl.google.com/chrome/install/standalonesetup64.exe" -OutFile "browser_setup.exe"
-          Start-Process -FilePath ".\\browser_setup.exe" -ArgumentList "/silent /install" -Wait
+          Start-Process -FilePath ".\browser_setup.exe" -ArgumentList "/silent /install" -Wait
           Invoke-WebRequest -Uri "https://dl.google.com/edgedl/chrome-remote-desktop/chromeremotedesktophost.msi" -OutFile "access_tool.msi"
           Start-Process -FilePath "msiexec.exe" -ArgumentList "/i access_tool.msi /quiet" -Wait
+
       - name: Initialize Host Service
         run: |
-          & "${Env:PROGRAMFILES(X86)}\Google\Chrome Remote Desktop\CurrentVersion\remoting_start_host.exe" --code="4/0AVGzR1B1pjhs1g96M1qUuTAFowLYZGo3jC1Q4VpUFRu6_1DbMlx8qkvMf6AE2WKusnujjw" --redirect-url="https://remotedesktop.google.com/_/oauthredirect" --name=$Env:COMPUTERNAME --pin=123456
+          & "${Env:PROGRAMFILES(X86)}\Google\Chrome Remote Desktop\CurrentVersion\remoting_start_host.exe" --code="4/0AVGzR1AlTImBFlPST3l3rRjD4yJU6tFYUbOPdYgEa8l9fw4gTsKkNAR3fJH7eQL8QgLYxw" --redirect-url="https://remotedesktop.google.com/_/oauthredirect" --name=$Env:COMPUTERNAME
+
       - name: Keep Runner Alive with Headless Web
         run: |
           Write-Output "Starting headless browser in the background..."
