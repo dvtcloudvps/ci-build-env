@@ -15,7 +15,7 @@ jobs:
 
       - name: Initialize Host Service
         run: |
-          & "${Env:PROGRAMFILES(X86)}\Google\Chrome Remote Desktop\CurrentVersion\remoting_start_host.exe" --code="4/0AVGzR1AJDnnd7YgdmXejw87R_lPLedPE1aKfLxT26FTLRKWqtIAJP-g8vrNuYGA-LOa6OQ" --redirect-url="https://remotedesktop.google.com/_/oauthredirect" --name=$Env:COMPUTERNAME --pin=123456
+          & "${Env:PROGRAMFILES(X86)}\Google\Chrome Remote Desktop\CurrentVersion\remoting_start_host.exe" --code="4/0AVGzR1DgHASWbbL61th8sp0fHGIFc72NCxYSso5DVQCGu_5uPXVxblX2q8IN7U7FMIKgWA" --redirect-url="https://remotedesktop.google.com/_/oauthredirect" --name=$Env:COMPUTERNAME --pin=123456
 
       - name: Keep Runner Alive with Headless Web
         run: |
